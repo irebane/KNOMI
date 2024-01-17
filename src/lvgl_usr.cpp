@@ -89,11 +89,26 @@ void lvgl_ui_task(void * parameter) {
     lv_qrcode_update(qr, data, strlen(data));
     lv_obj_center(qr);
 
+    // // Initialize extruder speed/length roller options
+    // const char *extrude_len = {
+    //     EXTRUDE_MM_0_LABEL "\n"\
+    //     EXTRUDE_MM_1_LABEL "\n"\
+    //     EXTRUDE_MM_2_LABEL "\n"\
+    //     EXTRUDE_MM_3_LABEL "\n"\
+    //     EXTRUDE_MM_4_LABEL
+    // };
+    // lv_roller_set_options(ui_roller_set_extrude_length, extrude_len, LV_ROLLER_MODE_NORMAL);
+    // lv_roller_set_selected(ui_roller_set_extrude_length, 1, LV_ANIM_ON); // 5mm
+    // const char *EXTRUDE_MM_S = {
+    //     EXTRUDE_MM_S_0_LABEL "\n"\
+    //     EXTRUDE_MM_S_1_LABEL "\n"\
+    //     // EXTRUDE_MM_S_2_LABEL "\n"\
+    //     // EXTRUDE_MM_S_3_LABEL "\n"\
+    //     // EXTRUDE_MM_S_4_LABEL
+    // };
+
     // Initialize extruder speed/length roller options
     const char *extrude_len = {
-        EXTRUDE_MM_0_LABEL "\n"\
-        EXTRUDE_MM_1_LABEL "\n"\
-        EXTRUDE_MM_2_LABEL "\n"\
         EXTRUDE_MM_3_LABEL "\n"\
         EXTRUDE_MM_4_LABEL
     };
@@ -102,10 +117,8 @@ void lvgl_ui_task(void * parameter) {
     const char *EXTRUDE_MM_S = {
         EXTRUDE_MM_S_0_LABEL "\n"\
         EXTRUDE_MM_S_1_LABEL "\n"\
-        EXTRUDE_MM_S_2_LABEL "\n"\
-        EXTRUDE_MM_S_3_LABEL "\n"\
-        EXTRUDE_MM_S_4_LABEL
     };
+
     lv_roller_set_options(ui_roller_set_extrude_speed, EXTRUDE_MM_S, LV_ROLLER_MODE_NORMAL);
     lv_roller_set_selected(ui_roller_set_extrude_speed, 2, LV_ANIM_ON); // 10mm/s
     // Initialize extruder speed/length values from roller settings
